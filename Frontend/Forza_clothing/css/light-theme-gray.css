@@ -1,0 +1,57 @@
+:root {
+    --primary-color:#202020;
+	--navbar-color: #202020;
+
+    --secondary-color: #333333;
+    --text-color: #D3D3D3;
+
+    --accent-color-1: #272727;
+
+    --dark-darker-gray: #2B2B2B;
+    --dark-dark-gray: #3B3B3B;
+    --dark-light-gray: #8c8c8c;
+	--dark-lighter-gray: #C0C0C0;
+    
+	
+	--dark-green: rgb(74, 137, 10);
+	--darker-green: rgb(57, 107, 8);
+	
+	--dark-red: rgb(215,41,43);
+	--darker-red: rgb(171, 33, 36);
+	
+	--light-blue: rgb(36, 148, 233);
+	--dark-blue: rgb(24, 103, 192);
+
+	--dark-gray-gradient: linear-gradient(90deg, rgba(204, 204, 204, 1) 0%, rgba(85, 85, 85, 1) 100%);
+	--light-gray-gradient: linear-gradient(90deg, #eeeeeeaa 0%, #dddddd 40%, #eeeeeeaa 100%);
+	--light-gray-gradient-rot: linear-gradient(30deg, #eeeeeeaa 0%, #ddd 40%, #eeeeeeaa 90%);
+
+	--light-red-gradient: linear-gradient(90deg, #ffeeeeaa 0%, #ffdddd 40%, #ffeeeeaa 100%);
+
+	--shadow-1: 0 1px 2px rgba(0, 0, 0, 0.1);
+	--shadow-2: 0 1px 2px rgba(0, 0, 0, 0.2);
+	--shadow-3: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/*
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+
+  ::-webkit-scrollbar-track {
+    background: var(--dark-light-gray);
+    border-radius: 0px 0px 0px 0px;
+  }
+  
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--dark-darker-gray);
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--navbar-color);
+  }
+
+  */

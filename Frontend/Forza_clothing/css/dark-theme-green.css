@@ -1,0 +1,26 @@
+:root {
+    --primary-color: #1f252b;
+    --navbar-color: #1f252b;
+    --secondary-color: #2f3a46;
+    --text-color: #ccc;
+  
+    --accent-color-1: #252d37;
+    --accent-color-2: #404f60;
+  
+    --dark-dark-gray: #3B3B3B;
+  
+    --red-light-1: #ff4d4d;
+    --red-light-2: #af2222;
+  
+    --green-light-1: #23c976;
+    --green-light-2: #00763b;
+  
+    --blue-light-1: #4d94ff;
+    --blue-light-2: #0d479d;
+  
+    --yellow-light-1: #ffd735;
+    --yellow-light-2: #e39400;
+  
+    --shadow-4-4: 0px 0px 4px 0px rgba(0, 0, 0, 0.4);
+    --shadow-2-2: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+  }
