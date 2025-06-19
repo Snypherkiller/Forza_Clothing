@@ -1,0 +1,79 @@
+:root{
+    --gradient-070A15-2B3042: linear-gradient(135deg, #070A15, #2B3042);
+    --gradient-2A0C5C-070A15: linear-gradient(135deg, #2a0c5a, #070A15);
+
+    --color-00F5FC: #00F5FC;
+    --color-C0C0C0: #C0C0C0;
+
+    --color-800: #081028;
+    --color-700: #0A1330;
+    --color-600: #0B1739;
+    --color-500: #7E89AC;
+    --color-400: #AEB9E1;
+    --color-300: #D1DBF9;
+    --color-200: #D9E1FA;
+    --color-100: #FFFFFF;
+
+    --accent-color-1: #0B1739;
+    --accent-color-2: #8951FF;
+    --accent-color-3: #CB3CFF;
+    --accent-color-4: #21C3FC;
+    --accent-color-5: #0E43FB;
+    --accent-color-6: #FDB52A;
+    --accent-color-7: #343B4F;
+
+    --gradient-1: linear-gradient(135deg, hsl(284, 100%, 62%) 20%, hsl(265, 96%, 56%) 70%);
+    --gradient-2: linear-gradient(135deg, hsl(265, 96%, 56%) 20%, hsl(284, 100%, 62%) 50%, hsl(265, 96%, 56%) 80%);
+
+
+    --primary-color : var(--color-800);
+	--navbar-color :  var(--color-800);
+
+    --text-color : var(--color-C0C0C0);
+    --text-color-highlight: var(--color-00F5FC);
+
+    --dark-dark-gray: #3B3B3B;
+
+    --red-light-1: #ff2525;
+    --red-light-2: #550000;
+    --gradient-red: linear-gradient(135deg, hsl(0, 100%, 65%), hsl(0, 100%, 23%) 70%);
+  
+    --green-light-1: #23c976;
+    --green-light-2: #004e27;
+    --gradient-green: linear-gradient(135deg, hsl(133, 100%, 65%), hsl(150, 100%, 23%) 70%);
+  
+    --blue-light-1: #4d94ff;
+    --blue-light-2: #0d479d;
+    --gradient-blue: linear-gradient(135deg, hsl(216, 100%, 65%), hsl(216, 100%, 23%) 70%);
+  
+    --yellow-light-1: #ffd735;
+    --yellow-light-2: #e39400;
+    --gradient-yellow: linear-gradient(135deg, hsl(48, 100%, 65%), hsl(34, 100%, 23%) 70%);
+
+    --shadow-4-4: 0px 0px 4px 0px #0a1536;
+    --shadow-2-2: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+    
+    --sub-border-radius: 4px;
+
+    --toastify-color-dark: #000e3a;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-800);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent-color-3);
+    background-clip: padding-box;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-600);
+}
