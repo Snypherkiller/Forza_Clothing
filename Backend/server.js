@@ -5,8 +5,13 @@ require("dotenv").config();
 
 
 const app = express();
-const PORT=process.env.PORT // 3000;
-const MONGODB_URL=process.env.MONGODB_URL;
+app.get("/favicon.ico", (req, res) => res.status(204).end());
+
+
+const PORT=process.env.PORT || 5000;
+
+
+
 
 mongoose.connect(process.env.MONGODB_URL)
 .then(()=>{
