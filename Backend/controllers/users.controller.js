@@ -1,9 +1,10 @@
- const User= require ("../models/users.model");
+ const userService=require("../services/users.service");
+ const express =require ("express");
  const mongoose= require("mongoose");
 
  const addUser = async (req,res)=>{
     try {
-        const user= await User.Create(req.body)
+        const user= await userService.Create(req.body)
         res.status(201).json({message:"User added successfully",user});
      }catch (error) {
         res.status(500).json({message:"Something wrong with adding user",error})
@@ -13,7 +14,7 @@
 
 const getUserById = async (req,res)=>{
     try {
-        const user=await User.findById(req.params.id);
+        const user=await userService.findById(req.params.id);
         res.status(200).json({message:"User Found successfully",user})
         
     } catch (error) {
@@ -23,7 +24,7 @@ const getUserById = async (req,res)=>{
 
 const getAllUsers =async (req,res)=>{
     try {
-        const users=await User.find();
+        const users=await userService.find();
         res.status(200).json({message:"Users fetched successfully",users})
         
     } catch (error) {
@@ -33,7 +34,7 @@ const getAllUsers =async (req,res)=>{
 
 const updateUser= async(req,res)=>{
     try {
-        const user= await User.findByIdAndUpdate(req.params.id,req.body,{new:true});
+        const user= await userService.findByIdAndUpdate(req.params.id,req.body,{new:true});
         res.status(200).json({ message: "User updated successfully!", user });
             
     } catch (error) {
@@ -43,7 +44,7 @@ const updateUser= async(req,res)=>{
 
 const deleteUser=async (req,res)=>{
     try {
-        const user = await User.findByIdAndDelete(req.params.id)
+        const user = await userService.findByIdAndDelete(req.params.id)
         res.status(200).json({message:"User deleted successfully!"})
     } catch (error) {
         
