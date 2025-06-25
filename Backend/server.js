@@ -1,26 +1,28 @@
 const express = require("express");
-const mongoose= require("mongoose");
+const mongoose = require("mongoose");
 require("dotenv").config();
 
-
-
 const app = express();
-app.get("/favicon.ico", (req, res) => res.status(204).end());
+const PORT = process.env.PORT || 5000;
+const MONGODB_URL = process.env.MONGODB_URL;
 
+// Middleware (optional, e.g., for JSON parsing)
+app.use(express.json());
 
-const PORT=process.env.PORT || 5000;
+// Root route
+app.get("/", (req, res) => {
+  res.send("Welcome to Forza Clothing API!");
+});
 
-
-
-
-mongoose.connect(process.env.MONGODB_URL)
-.then(()=>{
-    app.listen(PORT, ()=>{
-        console.log("Database connected successfully "+"and server is running on port "+PORT)
-    })
-})
-.catch((err)=>{
-    console.log("Database connection failed",err);
-})
-
-
+mongoose
+  .connect(MONGODB_URL)
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(
+        "Database connected successfully and server is running on port " + PORT
+      );
+    });
+  })
+  .catch((err) => {
+    console.log("Database connection failed", err);
+  });
