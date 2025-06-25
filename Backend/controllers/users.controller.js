@@ -1,4 +1,5 @@
  const User= require ("../models/users.model");
+ const mongoose= require("mongoose");
 
  const addUser = async (req,res)=>{
     try {
@@ -17,7 +18,7 @@ const getUserById = async (req,res)=>{
             return res.status(404).json({message:"User not found"})
         }
         else{
-            res.status(200).json({message:"User Found successfully",user})
+            return res.status(200).json({message:"User Found successfully",user})
         }
     } catch (error) {
         res.status(500).json({message:"There is some error while fetching user",error})
@@ -31,7 +32,7 @@ const getAllUsers =async (req,res)=>{
             return res.status(404).json({message:"No users found"})
         }
         else{
-            res.status(200).json({message:"Users fetched successfully",users})
+            return res.status(200).json({message:"Users fetched successfully",users})
         }
     } catch (error) {
         res.ststus(500).json ({message:"Something went wrong while fetching users",error})
@@ -40,9 +41,33 @@ const getAllUsers =async (req,res)=>{
 
 const updateUser= async(req,res)=>{
     try {
-        
+        const user= await User.findByIdAndUpdate(req.params.id,req.body,{new:true});
+        if(!user){
+          return res.status(404).json({message:"User not found!"});  
+        }
+        else{
+            return res
+              .status(200)
+              .json({ message: "User updated successfully!", user });
+            }
+    } catch (error) {
+        res.status(500).json({message:"Something went wrong while updating the user!",error})
+    }
+}
+
+const deleteUser=async (req,res)=>{
+    try {
+        const user = await User.findByIdAndDelete(req.params.id)
+        if(!user){
+            return res.status(404).json({message:"There is no User exist!"})
+        }
+        else{
+            return res.status(200).json({message:"User deleted successfully!"})
+        }
     } catch (error) {
         
     }
 }
+
+module.exports={addUser,getUserById,getAllUsers,updateUser,deleteUser};
 
