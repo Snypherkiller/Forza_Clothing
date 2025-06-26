@@ -9,19 +9,19 @@ router.post(
 );
 
 router.get(
-    "/user/:id",userController,getUserById
+    "/user/:id",userController.getUserById
 );
 
 router.get(
-    "/users",userController,getAllUsers
+    "/users",userController.getAllUsers
 );
 
 router.put(
-    "/user/:id",userController,updateUser
+    "/user/:id",userController.updateUser
 );
 
 router.delete(
-    "/user/:id",userController,deleteUser
+    "/user/:id",userController.deleteUser
 );
 
 module.exports=router;
