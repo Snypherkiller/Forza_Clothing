@@ -10,7 +10,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@elastic/ecs-pino-format": "^1.5.0",
+    "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "mongoose": "^8.16.0",
+    "pino": "^9.7.0",
     "yarn": "^1.22.22"
   }
 }
