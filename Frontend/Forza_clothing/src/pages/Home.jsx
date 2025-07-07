@@ -16,7 +16,7 @@ const Home = () => {
       <section className="hero">
         <div className="hero-text">
           <h1>Impossible is Nothing</h1>
-          <p>Explore the latest collection from Adidas.</p>
+          <p>Explore the latest collection from Forza.</p>
           <button onClick={scrollToProducts}>Explore Now</button>
         </div>
       </section>
