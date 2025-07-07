@@ -1,12 +1,16 @@
 import React from 'react';
 import './Navbar.css';
 import Home from '../pages/Home';
+import { useNavigate } from 'react-router-dom';
+
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <header className="navbar">
       <div className="navbar-left">
-        <div className="logo">forza</div>
+        <div className="logo" onClick={()=>navigate('/')}>forza</div>
       </div>
       <nav className="navbar-center a">
         <a href="/mens wear">Men</a>

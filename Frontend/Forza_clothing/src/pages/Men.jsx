@@ -27,8 +27,8 @@ const Men = () => {
         ].map((product, index) => (
           <div key={index} className="men-product-card">
             <img src={product.img} alt={product.name} />
-            <h3>{product.name}</h3>
-            <p>{product.price}</p>
+            <h3 className="men-product-card h2">{product.name}</h3>
+            <p className="men-product-card .price">{product.price}</p>
           </div>
         ))}
       </div>

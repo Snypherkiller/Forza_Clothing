@@ -3,7 +3,6 @@ import '../../css/Home.css';
 import ImageCarousel from '../components/imageCarousel';
 
 import prod from '../components/prod.png';
-import Footer from '../components/Footer';
 const Home = () => {
   const scrollToProducts = () => {
     const el = document.getElementById('featured');
@@ -12,7 +11,7 @@ const Home = () => {
 
   return (
     <div>
-      <ImageCarousel/>
+      <ImageCarousel />
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-text">
@@ -24,7 +23,7 @@ const Home = () => {
 
       {/* Featured Products */}
       <section id="featured" className="products">
-        <h2>Featured Products</h2>
+        <h2 className="products-h2">Featured Products</h2>
         <div className="product-grid">
           {[
             { name: "Ultraboost", price: "$180", img: prod },
@@ -33,14 +32,12 @@ const Home = () => {
           ].map((product, index) => (
             <div key={index} className="product-card">
               <img src={product.img} alt={product.name} />
-              <h3>{product.name}</h3>
-              <p>{product.price}</p>
+              <h3 className="products-h2">{product.name}</h3>
+              <p className="products-h2 ">{product.price}</p>
             </div>
           ))}
         </div>
       </section>
-
-
     </div>
   );
 };

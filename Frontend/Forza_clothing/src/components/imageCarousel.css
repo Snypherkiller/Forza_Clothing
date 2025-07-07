@@ -10,7 +10,7 @@
 .carousel-track {
   display: flex;
   width: calc(1000px * 8); /* Adjust if you change number of images */
-  animation: scroll 40s linear infinite;
+  animation: scroll 65s linear infinite;
 }
 
 .carousel-image {
