@@ -8,7 +8,7 @@ const Navbar = () => {
         <div className="logo">forza</div>
       </div>
       <nav className="navbar-center">
-        <a href="#">Men</a>
+        <a href="/mens wear">Men</a>
         <a href="#">Women</a>
         <a href="#">Kids</a>
         <a href="#">New Arrivals</a>
