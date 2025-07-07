@@ -6,6 +6,7 @@ import Home from "./pages/Home"
 import DetailContainer from "./components/DetailContainer"
 import Navbar from "./components/Navbar"
 import Men from "./pages/Men"
+import Footer from "./components/Footer"
 
 
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/" element={<Home/>}></Route>
         <Route path ="/mens wear" element={<Men/>}></Route>
       </Routes>
+    <Footer/>
     </BrowserRouter>
 
   )

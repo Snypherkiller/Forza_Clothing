@@ -1,5 +1,6 @@
 import React from 'react';
 import './Navbar.css';
+import Home from '../pages/Home';
 
 const Navbar = () => {
   return (
@@ -7,7 +8,7 @@ const Navbar = () => {
       <div className="navbar-left">
         <div className="logo">forza</div>
       </div>
-      <nav className="navbar-center">
+      <nav className="navbar-center a">
         <a href="/mens wear">Men</a>
         <a href="#">Women</a>
         <a href="#">Kids</a>

@@ -5,7 +5,7 @@
   background-color: #000;
   color: white;
   padding: 1rem 2rem;
-  position: static;
+  position: stat;
   top: 0;
   z-index: 100;
 }
@@ -15,6 +15,9 @@
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+.logo:hover{
+  transform: scale(1.1);
 }
 
 .navbar-center a {
@@ -26,7 +29,7 @@
 }
 
 .navbar-center a:hover {
-  color: #bbb;
+  color: #818181;
   border-bottom: 2px solid white;
   padding-bottom: 0.2rem;
 }

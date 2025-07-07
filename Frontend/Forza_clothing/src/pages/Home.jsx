@@ -3,6 +3,7 @@ import '../../css/Home.css';
 import ImageCarousel from '../components/imageCarousel';
 
 import prod from '../components/prod.png';
+import Footer from '../components/Footer';
 const Home = () => {
   const scrollToProducts = () => {
     const el = document.getElementById('featured');
@@ -39,10 +40,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="footer">
-        &copy; 2025 Forza. All rights reserved.
-      </footer>
+
     </div>
   );
 };
