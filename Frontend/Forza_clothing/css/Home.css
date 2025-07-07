@@ -45,7 +45,7 @@ nav a:hover {
 
 .hero {
   background: url('https://images.unsplash.com/photo-1528701800484-007e3cc7f8a2?fit=crop&w=1200') no-repeat center center/cover;
-  color: #fff;
+  color: #000000;
   text-align: center;
   padding: 6rem 2rem;
 }
@@ -58,14 +58,14 @@ nav a:hover {
 .hero-text p {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
-  color: #ddd;
+  color: #000000;
 }
 
 .hero-text button {
   padding: 0.8rem 1.5rem;
   font-size: 1rem;
-  background: #fff;
-  color: #000;
+  background: #000000;
+  color: #ffffff;
   border: none;
   cursor: pointer;
   transition: background 0.3s;
@@ -89,7 +89,7 @@ nav a:hover {
 }
 
 .product-card {
-  background: #272727;
+  background: #ffffff;
   padding: 1rem;
   border-radius: 10px;
   width: 300px;
@@ -113,7 +113,7 @@ footer {
   padding: 1rem 0;
 }
 .products-h2{
-  color: #fff;
+  color: #000000;
 }
 .product-card .price {
   color: #fff;
