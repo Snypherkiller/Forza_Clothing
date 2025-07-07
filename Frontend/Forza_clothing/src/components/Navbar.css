@@ -43,10 +43,11 @@
 
 .search-input {
   padding: 0.4rem 0.8rem;
-  border: none;
+  border: rgb(255, 204, 0);
   border-radius: 20px;
   font-size: 0.9rem;
-  outline: none;
+  outline:color(srgb rgb(223, 19, 19) rgb(14, 235, 14) rgb(4, 4, 214))
+  color: rgb(0, 0, 0);
 }
 
 .cart-button {
