@@ -19,9 +19,9 @@ const Home = () => {
 
   return (
     <div>
-      <ImageCarousel />
       <div>
         {/* Hero Section */}
+        <img src={NBA1} alt="Forza skinny" className="hero-img" />
         <section className="hero">
           <div className="hero-text">
             <h1>Impossible is Nothing</h1>
@@ -31,7 +31,7 @@ const Home = () => {
             </button>
           </div>
         </section>
-        <img src={NBA1} alt="Forza skinny" className="hero-img" />
+        <ImageCarousel />
 
         {/* Featured Products */}
         <section id="featured" className="products">
