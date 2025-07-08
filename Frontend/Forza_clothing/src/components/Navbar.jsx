@@ -13,8 +13,8 @@ const Navbar = () => {
         <div className="logo" onClick={()=>navigate('/')}>forza</div>
       </div>
       <nav className="navbar-center a">
-        <a href="/mens wear">Men</a>
-        <a href="#">Women</a>
+        <a href="/mens-wear">Men</a>
+        <a href="/womens-wear">Women</a>
         <a href="#">Kids</a>
         <a href="#">New Arrivals</a>
         <a href="#">Sale</a>

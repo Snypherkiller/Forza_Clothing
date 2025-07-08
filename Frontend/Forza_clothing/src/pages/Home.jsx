@@ -3,6 +3,7 @@ import '../../css/Home.css';
 import ImageCarousel from '../components/imageCarousel';
 
 import prod from '../components/prod.png';
+import NBA1 from '../components/images/NBA1.png';
 const Home = () => {
   const scrollToProducts = () => {
     const el = document.getElementById('featured');
@@ -11,33 +12,36 @@ const Home = () => {
 
   return (
     <div>
-      <ImageCarousel />
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-text">
-          <h1>Impossible is Nothing</h1>
-          <p>Explore the latest collection from Forza.</p>
-          <button onClick={scrollToProducts}>Explore Now</button>
-        </div>
-      </section>
+      <ImageCarousel/>
+      <div>
+        {/* Hero Section */}
+        <section className="hero">
+          <div className="hero-text">
+            <h1>Impossible is Nothing</h1>
+            <p>Explore the latest collection from Forza.</p>
+            <button onClick={scrollToProducts}>Explore Now</button>
+          </div>
+        </section>
+        <img src={NBA1} alt="Forza skinny" className="hero-img"></img>
 
-      {/* Featured Products */}
-      <section id="featured" className="products">
-        <h2 className="products-h2">Featured Products</h2>
-        <div className="product-grid">
-          {[
-            { name: "Ultraboost", price: "$180", img: prod },
-            { name: "Superstar", price: "$90", img: prod },
-            { name: "Stan Smith", price: "$85", img: prod },
-          ].map((product, index) => (
-            <div key={index} className="product-card">
-              <img src={product.img} alt={product.name} />
-              <h3 className="products-h2">{product.name}</h3>
-              <p className="products-h2 ">{product.price}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+        {/* Featured Products */}
+        <section id="featured" className="products">
+          <h2 className="products-h2">Featured Products</h2>
+          <div className="product-grid">
+            {[
+              { name: "Ultraboost", price: "$180", img: prod },
+              { name: "Superstar", price: "$90", img: prod },
+              { name: "Stan Smith", price: "$85", img: prod },
+            ].map((product, index) => (
+              <div key={index} className="product-card">
+                <img src={product.img} alt={product.name} />
+                <h3 className="products-h2">{product.name}</h3>
+                <p className="products-h2 ">{product.price}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   );
 };

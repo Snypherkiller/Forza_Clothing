@@ -54,6 +54,11 @@ nav a:hover {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
+.hero-img{
+  border-radius: 8px;
+  align-items: center;
+  width: 100%;
+}
 
 .hero-text p {
   font-size: 1.2rem;
