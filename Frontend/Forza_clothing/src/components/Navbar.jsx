@@ -15,8 +15,8 @@ const Navbar = () => {
       <nav className="navbar-center a">
         <a href="/mens-wear">Men</a>
         <a href="/womens-wear">Women</a>
-        <a href="#">Kids</a>
-        <a href="#">New Arrivals</a>
+        <a href="/kids-wear">Kids</a>
+        <a href="/new-arrivals">New Arrivals</a>
         <a href="#">Sale</a>
       </nav>
       <div className="navbar-right">

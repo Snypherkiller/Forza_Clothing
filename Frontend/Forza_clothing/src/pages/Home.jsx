@@ -1,28 +1,37 @@
-import React from 'react';
-import '../../css/Home.css';
-import ImageCarousel from '../components/imageCarousel';
+import React, { useState } from "react";
+import "../../css/Home.css";
+import ImageCarousel from "../components/imageCarousel";
 
-import prod from '../components/prod.png';
-import NBA1 from '../components/images/NBA1.png';
+import prod from "../components/prod.png";
+import NBA1 from "../components/images/NBA1.png";
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
-  const scrollToProducts = () => {
-    const el = document.getElementById('featured');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
+  const handleExploreClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      navigate("/new-arrivals");
+    }, 1200); // Delay to show loading spinner before navigating
   };
 
   return (
     <div>
-      <ImageCarousel/>
+      <ImageCarousel />
       <div>
         {/* Hero Section */}
         <section className="hero">
           <div className="hero-text">
             <h1>Impossible is Nothing</h1>
             <p>Explore the latest collection from Forza.</p>
-            <button onClick={scrollToProducts}>Explore Now</button>
+            <button onClick={handleExploreClick} disabled={loading}>
+              {loading ? <div className="spinner"></div> : "Explore Now"}
+            </button>
           </div>
         </section>
-        <img src={NBA1} alt="Forza skinny" className="hero-img"></img>
+        <img src={NBA1} alt="Forza skinny" className="hero-img" />
 
         {/* Featured Products */}
         <section id="featured" className="products">
@@ -36,7 +45,7 @@ const Home = () => {
               <div key={index} className="product-card">
                 <img src={product.img} alt={product.name} />
                 <h3 className="products-h2">{product.name}</h3>
-                <p className="products-h2 ">{product.price}</p>
+                <p className="products-h2">{product.price}</p>
               </div>
             ))}
           </div>

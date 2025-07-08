@@ -8,6 +8,8 @@ import Navbar from "./components/Navbar"
 import Men from "./pages/Men"
 import Footer from "./components/Footer"
 import Womens from "./pages/Womens"
+import Kids from "./pages/Kids"
+import New from "./pages/New-Arrivals"
 
 
 
@@ -16,17 +18,18 @@ function App() {
 
   return (
     <BrowserRouter>
-    <Navbar/>
+      <Navbar />
       <Routes>
-        <Route path="/dashboard" element={<Dashboard/>} />
-        <Route path="/" element={<Home/>}></Route>
-        <Route path ="/mens-wear" element={<Men/>}></Route>
-        <Route path="/womens-wear" element={<Womens/>}></Route>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/mens-wear" element={<Men />}></Route>
+        <Route path="/womens-wear" element={<Womens />}></Route>
+        <Route path="/kids-wear" element={<Kids />}></Route>
+        <Route path="/new-arrivals" element={<New />}></Route>
       </Routes>
-    <Footer/>
+      <Footer />
     </BrowserRouter>
-
-  )
+  );
 }
 
 export default App
