@@ -27,7 +27,7 @@ function App() {
         <Route path="/kids-wear" element={<Kids />}></Route>
         <Route path="/new-arrivals" element={<New />}></Route>
       </Routes>
-      <Footer />
+      <Footer/>
     </BrowserRouter>
   );
 }
