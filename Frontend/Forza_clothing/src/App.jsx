@@ -1,13 +1,38 @@
-
-function App() {
-
-  return (
-   
-    <BrowserRouter>
-    
-    </BrowserRouter>
-  
-  )
+import {useState,useEffect} from 'react';
+import './App.css';
+const products=[
+['01','Essential Oversized Tee','Men',3490,'photo-1521572163474-6864f9cf17ab'],
+['02','Studio Crop Tee','Women',2990,'photo-1562157873-818bc0726f68'],
+['03','Urban Hoodie','Unisex',6990,'photo-1556821840-3a63f95609a7'],
+['04','Everyday Denim','Men',5990,'photo-1542272604-787c3835535d'],
+['05','Street Jacket','Unisex',8990,'photo-1551028719-00167b16eac5'],
+['06','Signature Cap','Accessories',2490,'photo-1588850561407-ed78c282e89b'],
+['07','Relaxed Shirt','Women',4490,'photo-1598554747436-c9293d6a588f'],
+['08','Core Sneakers','Accessories',7990,'photo-1549298916-b41d501d3772']
+].map(([id,name,category,price,image])=>({id,name,category,price,image}));
+const money=n=>'LKR '+n.toLocaleString('en-LK');
+const photo=(p)=>'https://images.unsplash.com/'+p.image+'?auto=format&fit=crop&w=900&q=80';
+const links=['Shop','Men','Women','Unisex','Accessories','New arrivals'];
+const support={'About':'FORZA is a streetwear concept built around everyday confidence, clean silhouettes and individual expression.','Contact':'Customer support details will be published before launch.','Shipping & delivery':'Delivery areas, fees and estimated times will be confirmed before orders are accepted.','Returns & exchanges':'The official returns and exchange policy will be published before launch.','Privacy':'This demo stores cart and wishlist preferences locally in your browser. No payment information is collected.','Terms':'This storefront is a demonstration. Products, prices and availability are illustrative.','Size guide':'Choose your usual size for a regular fit. Product-specific measurements must be confirmed before launch.','FAQ':'Can I place a real order? Not yet. This is a storefront preview.'};
+function read(key){try{return JSON.parse(localStorage.getItem(key))||[]}catch{return []}}
+export default function App(){
+const [route,setRoute]=useState(location.hash.slice(1)||'Home');
+const [cart,setCart]=useState(()=>read('forza-cart'));
+const [wish,setWish]=useState(()=>read('forza-wish'));
+const [query,setQuery]=useState(''),[sort,setSort]=useState('Featured'),[size,setSize]=useState(''),[color,setColor]=useState('Black'),[notice,setNotice]=useState('');
+useEffect(()=>{const f=()=>{setRoute(location.hash.slice(1)||'Home');setSize('');setNotice('');window.scrollTo(0,0)};window.addEventListener('hashchange',f);return()=>window.removeEventListener('hashchange',f)},[]);
+useEffect(()=>{localStorage.setItem('forza-cart',JSON.stringify(cart))},[cart]);
+useEffect(()=>{localStorage.setItem('forza-wish',JSON.stringify(wish))},[wish]);
+const go=r=>{location.hash=r};const count=cart.reduce((s,x)=>s+x.qty,0);const total=cart.reduce((s,x)=>s+x.qty*x.price,0);
+const toggle=id=>setWish(w=>w.includes(id)?w.filter(x=>x!==id):[...w,id]);
+const add=p=>{if(!size){setNotice('Please select a size.');return}const key=p.id+size+color;setCart(c=>c.some(x=>x.key===key)?c.map(x=>x.key===key?{...x,qty:x.qty+1}:x):[...c,{...p,key,size,color,qty:1}]);setNotice('Added to your bag.')};
+const change=(key,d)=>setCart(c=>c.map(x=>x.key===key?{...x,qty:x.qty+d}:x).filter(x=>x.qty>0));
+const item=products.find(p=>route==='product/'+p.id);
+const cards=items=><div className="products">{items.map(p=><article className="product" key={p.id}><div className="product-photo"><a href={'#product/'+p.id}><img loading="lazy" src={photo(p)} alt={p.name}/></a><button className="heart" aria-label={wish.includes(p.id)?'Remove from wishlist':'Save to wishlist'} onClick={()=>toggle(p.id)}>{wish.includes(p.id)?'♥':'♡'}</button></div><a href={'#product/'+p.id}><small>{p.category}</small><h3>{p.name}</h3><strong>{money(p.price)}</strong></a></article>)}</div>;
+let filtered=products.filter(p=>(!['Men','Women','Unisex','Accessories'].includes(route)||p.category===route)&&p.name.toLowerCase().includes(query.toLowerCase()));
+if(sort==='Price low to high')filtered.sort((a,b)=>a.price-b.price);if(sort==='Price high to low')filtered.sort((a,b)=>b.price-a.price);
+return <><div className="announcement">FORZA / THE NEXT GENERATION OF STREETWEAR</div><header><a className="brand" href="#Home">FORZA<span>®</span></a><nav aria-label="Main navigation">{links.map(l=><a key={l} className={route===l?'active':''} href={'#'+l}>{l}</a>)}</nav><div className="actions"><a href="#Search" aria-label="Search">⌕</a><a href="#Wishlist" aria-label="Wishlist">♡</a><a href="#Account" aria-label="Account">◎</a><a href="#Cart" aria-label={'Shopping bag '+count}>BAG ({count})</a></div></header>
+<main>
+{route==='Home'?<><section className="hero"><div><small className="eyebrow">DROP 01 / THE ESSENTIALS</small><h1>NOT MADE<br/>TO <em>BLEND IN.</em></h1><p>Streetwear for the way you move. Everyday essentials with a fearless edge.</p><button onClick={()=>go('Shop')}>EXPLORE THE COLLECTION ↗</button></div></section><div className="strip">BUILT FOR THE STREETS <span>✳</span> DEFINE YOUR OWN STYLE <span>✳</span> FORZA ORIGINALS</div><section className="section"><div className="section-head"><div><small className="eyebrow">01 / DISCOVER</small><h2>SHOP YOUR WAY.</h2></div></div><div className="categories">{['Men','Women','Unisex','Accessories'].map((c,i)=><a key={c} href={'#'+c} style={{backgroundImage:'linear-gradient(0deg,#000b,transparent),url('+photo(products[[0,1,2,5][i]])+')'}}><strong>{c} ↗</strong></a>)}</div></section><section className="section light"><div className="section-head"><div><small>02 / FRESH PICKS</small><h2>THE LATEST DROP.</h2></div><a href="#Shop">VIEW ALL ↗</a></div>{cards(products.slice(0,4))}</section><section className="manifesto"><small>THE FORZA MINDSET</small><h2>STYLE IS AN ATTITUDE.</h2><a className="cta" href="#About">OUR STORY ↗</a></section></>:item?<section className="section detail"><img src={photo(item)} alt={item.name}/><div><a href="#Shop">← Back to shop</a><small className="eyebrow">{item.category} / FORZA ORIGINALS</small><h1>{item.name}</h1><h2>{money(item.price)}</h2><p>A versatile streetwear essential for your everyday rotation. Sample product shown for preview.</p><p>Colour: {color}</p><div className="choices">{['Black','White','Lime'].map(c=><button key={c} className={color===c?'selected':'secondary'} onClick={()=>setColor(c)}>{c}</button>)}</div><p>Size · <a href="#Size guide">Size guide</a></p><div className="choices">{(item.category==='Accessories'?['One size']:['XS','S','M','L','XL','XXL']).map(s=><button key={s} className={size===s?'selected':'secondary'} onClick={()=>setSize(s)}>{s}</button>)}</div><button className="wide" onClick={()=>add(item)}>ADD TO BAG</button><button className="secondary wide" onClick={()=>toggle(item.id)}>{wish.includes(item.id)?'REMOVE FROM WISHLIST':'SAVE TO WISHLIST'}</button><p role="status">{notice}</p></div></section>:route==='Cart'?<section className="section"><h1>YOUR BAG ({count})</h1>{cart.length? <><div className="cart">{cart.map(x=><article key={x.key}><img src={photo(x)} alt={x.name}/><div><h3>{x.name}</h3><p>{x.size} / {x.color}</p><button className="secondary" onClick={()=>change(x.key,-1)}>−</button> {x.qty} <button className="secondary" onClick={()=>change(x.key,1)}>+</button><button className="secondary" onClick={()=>setCart(c=>c.filter(y=>y.key!==x.key))}>Remove</button></div><strong>{money(x.qty*x.price)}</strong></article>)}</div><h2>Subtotal {money(total)}</h2><button onClick={()=>go('Checkout')}>CHECKOUT ↗</button></>:<p>Your bag is empty. <a href="#Shop">Explore the collection.</a></p>}</section>:route==='Checkout'?<section className="section narrow"><h1>CHECKOUT</h1><p>Demo checkout only. No orders or payments will be submitted.</p><h2>{money(total)}</h2><p>{count} item(s) in your bag. Live delivery rates and payment methods are not configured.</p><a href="#Cart">Return to bag</a></section>:route==='Account'?<section className="section narrow"><h1>MY ACCOUNT</h1><p>Customer account sign-in and order history are not connected in this preview.</p><a href="#Wishlist">View saved items</a><p><a href="#Cart">View shopping bag</a></p></section>:route==='Wishlist'?<section className="section"><h1>YOUR WISHLIST</h1>{wish.length?cards(products.filter(p=>wish.includes(p.id))):<p>No saved items yet. <a href="#Shop">Find your favourites.</a></p>}</section>:Object.hasOwn(support,route)?<section className="section narrow"><small className="eyebrow">FORZA / INFORMATION</small><h1>{route}</h1><p>{support[route]}</p><a href="#Shop">Explore the collection ↗</a></section>:links.includes(route)||route==='Search'?<section className="section light"><small>FORZA / COLLECTION</small><h1>{route==='Shop'?'SHOP ALL':route}</h1><div className="filters"><input aria-label="Search products" placeholder="Search products..." value={query} onChange={e=>setQuery(e.target.value)}/><select aria-label="Sort products" value={sort} onChange={e=>setSort(e.target.value)}>{['Featured','Price low to high','Price high to low'].map(s=><option key={s}>{s}</option>)}</select></div><p>{filtered.length} products · Demo collection</p>{filtered.length?cards(filtered):<p>No matching products.</p>}</section>:<section className="section"><h1>PAGE NOT FOUND</h1><a href="#Home">Back to home</a></section>}
+</main><footer><div><a className="brand" href="#Home">FORZA<span>®</span></a><p>Wear your energy.</p><small>Concept storefront · Sample catalogue</small></div><div><h3>SHOP</h3>{links.map(l=><a key={l} href={'#'+l}>{l}</a>)}</div><div><h3>HELP</h3>{['Contact','Shipping & delivery','Returns & exchanges','Size guide','FAQ'].map(l=><a key={l} href={'#'+l}>{l}</a>)}</div><div><h3>FORZA</h3>{['About','Privacy','Terms'].map(l=><a key={l} href={'#'+l}>{l}</a>)}</div><div className="copyright">© {new Date().getFullYear()} FORZA CLOTHING</div></footer></>
 }
-
-export default App
