@@ -30,3 +30,6 @@ body{background:var(--gradient-dark);background-attachment:fixed}header{backgrou
 
 /* Keep the athletic hero slogan balanced without an orphaned final word. */
 .hero.hero-video .hero-copy{width:100%;max-width:1120px;min-width:0;padding-right:16px}.hero.hero-video h1{font-size:clamp(42px,5.5vw,96px);line-height:1.04;letter-spacing:-.045em;width:max-content;max-width:100%}.hero.hero-video h1 em{white-space:nowrap}.hero.hero-video .hero-copy p{max-width:440px}@media(max-width:850px){.hero.hero-video h1{font-size:clamp(30px,7.2vw,60px)}}@media(max-width:480px){.hero.hero-video .hero-copy{padding-right:4px}.hero.hero-video h1{font-size:clamp(21px,7.8vw,37px);letter-spacing:-.05em}}
+
+/* Taller cinematic hero with generous vertical spacing, no external gaps. */
+.hero.hero-video{min-height:max(760px,calc(100svh - 125px));padding-block:clamp(100px,10vh,160px);align-items:center}.hero.hero-video .hero-copy{margin-block:0}@media(max-width:850px){.hero.hero-video{min-height:max(620px,78svh);padding-block:85px}}@media(max-width:480px){.hero.hero-video{min-height:max(540px,76svh);padding-block:65px}}
