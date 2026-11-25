@@ -1,0 +1,1 @@
+Extract FORZA_Web_Assets.zip at repository root before running. It contains optimized WebP campaign and product images and original FORZA 3 SVG logos under Frontend/Forza_clothing/public/brand. Prices and stock remain provisional. Do not publish third-party automotive artwork without checking usage rights.
